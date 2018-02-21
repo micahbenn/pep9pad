@@ -13,7 +13,6 @@ class HelpMasterController: UITableViewController {
     internal var helpDetail: HelpDetailController!
     internal var asmMasterVC: Pep9MasterController!
     
-    
     // MARK: - View Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,17 +28,11 @@ class HelpMasterController: UITableViewController {
         self.asmMasterVC = mvc
     }
     
-    
-    
     func loadExample(_ text: String, ofType: PepFileType, io: String!, usesTerminal: Bool) {
         self.asmMasterVC.loadExample(text, ofType: ofType, io: io, usesTerminal: usesTerminal)
         self.close()
     }
     
-    
-    
-    
-
     // MARK: - IBOutlets
     @IBAction func closeBtnPressed(_ sender: UIBarButtonItem) {
         self.close()
@@ -136,7 +129,6 @@ class HelpMasterController: UITableViewController {
         }
     }
     
-    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
@@ -144,6 +136,4 @@ class HelpMasterController: UITableViewController {
 //    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return UITableViewAutomaticDimension
 //    }
-    
-    
 }

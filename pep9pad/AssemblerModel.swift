@@ -1129,6 +1129,7 @@ class AssemblerModel {
     // Post: self.listingTrace is populated with the object code.
     // Post: self.hasCheckBox is populated with the checkBox list that specifies whether a trace line can have a break point.
     // Post: assemblerListing is returned.
+    @discardableResult
     func getAssemblerListing() -> [String] {
         listing.removeAll()
         var listingTrace = getListingTrace() // why do this...
@@ -1140,8 +1141,7 @@ class AssemblerModel {
         return listing
     }
     
-    
-    
+    @discardableResult
     func getReadableListing() -> String {
         var readable = ""
         getAssemblerListing()

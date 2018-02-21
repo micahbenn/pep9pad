@@ -52,10 +52,6 @@ class Pep9ProcessorController: UIViewController {
 //        }
 //    }
     
-    
-    
-    
-    
     // MARK: - Methods
     
     /// Pulls data from the registers in `machine`, decodes that data with 
@@ -96,9 +92,7 @@ class Pep9ProcessorController: UIViewController {
         }
     }
 
-
     func clearCpu() {
-        
         nBit.text = ""
         zBit.text = ""
         vBit.text = ""
@@ -133,7 +127,5 @@ class Pep9ProcessorController: UIViewController {
         machine.indexRegister = 0
         machine.stackPointer = 0
         machine.programCounter = 0
-
-
     }
 }

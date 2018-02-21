@@ -8,9 +8,7 @@
 import UIKit
 
 class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
-   
-    
-    
+
     // MARK: - Initializers
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -32,11 +30,9 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
         initialLoad()
     }
 
-
     // MARK: - Methods
 
     var memoryDump: [String] = [String](repeating: "", count: 8192)
-    
     
     func initialLoad() {
         memoryDump.removeAll(keepingCapacity: true)
@@ -91,9 +87,6 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
 
     }
     
-
-
-    
     /// Refreshes the memory in a given range.
     func update(fromByte: Int, toByte: Int) {
         let fromLine = fromByte / 8
@@ -140,7 +133,6 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
 //        
 //    }
 
-
     func scrollToByte(_ byte: Int) {
         let row: Int
         if byte % 8 == 0 {
@@ -152,11 +144,7 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
         
     }
     
-    
-    
-
     // MARK: - IBOutlets and Actions 
-    
     
     @IBOutlet var table: UITableView! {
         didSet {
@@ -180,14 +168,8 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
     
     @IBAction func pcBtnPressed(_ sender: UIButton) {
         scrollToByte(machine.programCounter)
-        
-        
     }
     
-
-    
-    
-
     // MARK: - Conformance to UITableViewDataSource
     
     let cellID = "MemDumpCellID"
@@ -214,8 +196,6 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
         return 15
     }
     
-    
-
     // MARK: - Conformance to UITextFieldDelegate
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -234,6 +214,4 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
         
         return true
     }
-    
-    
 }

@@ -7,14 +7,10 @@
 
 import UIKit
 
-
-
 enum ExampleVCTextField {
     case Top
     case Bottom
 }
-
-
 
 class ExampleViewController: UIViewController {
     
@@ -33,7 +29,6 @@ class ExampleViewController: UIViewController {
     
     @IBOutlet weak var topTextView: CodeView!
     @IBOutlet weak var bottomTextView: CodeView!
-    
     
     // MARK: - Methods
     
@@ -72,8 +67,6 @@ class ExampleViewController: UIViewController {
             return
         }
     }
-    
-    
     
     /// Changes the view to show one or two textViews and scrolls the textViews back to the top.
     func setNumTextViews(to n: Int = 2) {
@@ -120,7 +113,6 @@ class ExampleViewController: UIViewController {
         }
     }
     
-    
     func setExampleIO(_ s: String) {
         self.currentExampleIO = s
         self.currentExampleRequiresTerminal = false
@@ -142,8 +134,4 @@ class ExampleViewController: UIViewController {
             return type
         }
     }
-    
-
-
-
 }

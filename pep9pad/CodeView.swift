@@ -49,7 +49,6 @@ class CodeView: UIView, UITextViewDelegate {
 //        self.textAlignment = .Left
     }
     
-    
     func setEditable(_ to: Bool) {
         textView.isEditable = to
     }
@@ -78,15 +77,12 @@ class CodeView: UIView, UITextViewDelegate {
         // TODO: change foreground and background color to match the scheme in appSettings
     }
     
-    
-    
     // MARK: - Text-Handling Functions
     
     internal func setText(_ to: String) {
         self.textView.text = to
         self.textView.isScrollEnabled = true
     }
-    
     
     func removeAllText() {
         textView.text.removeAll()
@@ -95,7 +91,6 @@ class CodeView: UIView, UITextViewDelegate {
     func getText() -> String {
         return textView.text
     }
-    
     
     func loadExample(_ fileName: String, ofType: PepFileType) {
         guard let path = Bundle.main.path(forResource: fileName, ofType: ofType.rawValue) else {
@@ -114,7 +109,6 @@ class CodeView: UIView, UITextViewDelegate {
             return
         }
     }
-    
 
     // MARK: - Conformance to UITextViewDelegate
     
@@ -148,10 +142,4 @@ class CodeView: UIView, UITextViewDelegate {
         
         return true
     }
-
-    
-    
-    
-    
-    
 }

@@ -5,8 +5,6 @@
 //  Copyright © 2016 Pepperdine University. All rights reserved.
 //
 
-
-
 /// Instruction mnemonics
 enum EMnemonic {
     case ADDA, ADDX, ADDSP, ANDA, ANDX, ASLA, ASLX, ASRA, ASRX
@@ -21,7 +19,6 @@ enum EMnemonic {
     case RET, RETTR, ROLA, ROLX, RORA, RORX
     case STBA, STBX, STWA, STWX, STOP, STRO, SUBA, SUBX, SUBSP
 }
-
 
 /// Addressing modes for instructions
 enum EAddrMode: Int {

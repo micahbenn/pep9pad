@@ -9,7 +9,6 @@ import UIKit
 
 class ObjectController: UIViewController, ProjectModelEditor, CodeViewDelegate {
     
-    
     // MARK: - View Controller Lifecycle
     
     override func viewDidLoad() {
@@ -23,11 +22,7 @@ class ObjectController: UIViewController, ProjectModelEditor, CodeViewDelegate {
     // MARK: - IBOutlets and Actions
     /// The primary view in this UIViewController.
     @IBOutlet var textView: CodeView!
-    
-    
-    
-    
-    
+
     // MARK: - Conformance to ProjectModelEditor
     
     /// Updates the contents of the `textView` with `projectModel.objectStr`.
@@ -40,9 +35,6 @@ class ObjectController: UIViewController, ProjectModelEditor, CodeViewDelegate {
         projectModel.receiveChanges(from: self, text: textView.getText())
     }
     
-    
-    
-    
     // MARK: - Conformance to CodeViewDelegate
     
     func textViewDidChange() {
@@ -50,6 +42,4 @@ class ObjectController: UIViewController, ProjectModelEditor, CodeViewDelegate {
         // setting isScrollEnabled seems to fix the scrolling issues
         //textView.textView.isScrollEnabled = true
     }
-    
-    
 }

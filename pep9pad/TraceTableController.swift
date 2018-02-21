@@ -8,22 +8,16 @@
 
 import UIKit
 
-
-
 class TraceTableController: UITableViewController {
-    
-    
     var traceOS: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    
     func loadFromListing() {
         tableView.reloadData()
     }
-    
     
     func update() {
         // depends on whether we are in the OS or a program
@@ -58,19 +52,15 @@ class TraceTableController: UITableViewController {
             }
             // TODO: prog?
         }
-    
-
     }
-
-
 
     // Conformance to UITableViewDataSource (subclass of UITableViewController)
     
-    
-    let idForCell = "traceTableCellID"
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell
         let index = indexPath.row
+        
+        let idForCell = "traceTableCellID"
         
         // create or dequeue a cell
         if let temp = tableView.dequeueReusableCell(withIdentifier: idForCell) {
@@ -102,7 +92,6 @@ class TraceTableController: UITableViewController {
         cell.selectedBackgroundView = backgroundView
         return cell
     }
-    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {

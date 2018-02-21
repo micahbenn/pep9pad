@@ -61,10 +61,7 @@ class NonUnaryInstruction: Code {
             objectCode.append(operandSpecifier / 256)
             objectCode.append(operandSpecifier % 256)
         }
-    
-    
-    
-}
+    }
     
     override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
         var listingTrace = listingTrace
@@ -126,8 +123,6 @@ class NonUnaryInstruction: Code {
     }
     
     override func processSymbolTraceTags(at sourceLine: inout Int, err errorString: inout String) -> Bool {
-        var sourceLine = sourceLine
-        var errorString = errorString
         if mnemonic == EMnemonic.ADDSP || mnemonic == EMnemonic.SUBSP {
             var numBytesAllocated: Int
             if addressingMode != EAddrMode.I {

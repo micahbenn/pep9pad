@@ -8,11 +8,7 @@
 import UIKit
 
 class TraceController: UIViewController {
-    
-    
     var traceTable: TraceTableController!
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,5 +25,4 @@ class TraceController: UIViewController {
             }
         }
     }
-    
 }

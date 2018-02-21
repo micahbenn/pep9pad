@@ -7,7 +7,6 @@
 import Foundation
 
 enum Figures: String {
-    
     case FIG433  = "Figure 4.33"
     case FIG435  = "Figure 4.35"
     case FIG436  = "Figure 4.36"
@@ -93,13 +92,9 @@ enum Figures: String {
         FIG646,
         FIG648
     ]
-
 }
 
-
-
 enum Problems: String {
-    
     case EXER804 = "Exercise 8.04"
     case PROB826 = "Problem 8.26"
     case PROB827 = "Problem 8.27"
@@ -119,7 +114,6 @@ enum Problems: String {
         PROB831,
         PROB832
     ]
-
 }
 
 enum ProblemDescriptions: String {
@@ -142,7 +136,6 @@ enum ProblemDescriptions: String {
         PROB831,
         PROB832
     ]
-
 }
 
 enum FigureDescriptions: String {
@@ -231,10 +224,4 @@ enum FigureDescriptions: String {
         FIG646,
         FIG648
     ]
-
 }
-
-
-
-
-

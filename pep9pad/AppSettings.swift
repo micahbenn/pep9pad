@@ -27,7 +27,6 @@ class AppSettings {
         darkModeOn = !darkModeOn
     }
     
-    
     /// Rather than giving `appSettings` a lot of attributes for,
     /// say, `textColor` or `backgroundColor` or whatever, I figure we
     /// should just handle this info with a method.
@@ -38,8 +37,6 @@ class AppSettings {
         case .errorText: return .red
         }
     }
-    
-    
     
     enum SavedSettings: String {
         case darkModeOn = "Pep9UserDefaultsDarkModeOn"

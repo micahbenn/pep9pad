@@ -568,13 +568,13 @@
 		461279461E26104A00212829 /* Master */ = {
 			isa = PBXGroup;
 			children = (
-				46C608D01C8EAC1E00CC161A /* Pep9ProcessorController.swift */,
 				D2B0615B1C7E62040088CEBE /* Pep9MasterController.swift */,
+				46C608D01C8EAC1E00CC161A /* Pep9ProcessorController.swift */,
 				46C7EEE21D80BDD300F74B6E /* Pep9Processor.storyboard */,
+				46C76A601DAD86BD0071C340 /* IOMemController.swift */,
 				4694F3D01DBABC0300F0E822 /* IOMem.storyboard */,
 				46C76A6B1DB959480071C340 /* MemoryView.swift */,
 				46BCDC3E1E9D7067008BF3DC /* MemoryHeader.xib */,
-				46C76A601DAD86BD0071C340 /* IOMemController.swift */,
 			);
 			name = Master;
 			sourceTree = "<group>";
@@ -605,10 +605,10 @@
 		46278CC61E075834009D6371 /* Trace */ = {
 			isa = PBXGroup;
 			children = (
-				468FB3131E0CF0EB001F154A /* Trace.storyboard */,
-				4642A16D1DFE1DB700D072F0 /* StackFrameFSM.swift */,
-				46278CC81E076CFA009D6371 /* StackController.swift */,
 				468FB3111E0CB50D001F154A /* TraceTableController.swift */,
+				468FB3131E0CF0EB001F154A /* Trace.storyboard */,
+				46278CC81E076CFA009D6371 /* StackController.swift */,
+				4642A16D1DFE1DB700D072F0 /* StackFrameFSM.swift */,
 				4642A16F1DFE1DFF00D072F0 /* StackState.swift */,
 			);
 			name = Trace;

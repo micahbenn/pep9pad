@@ -19,7 +19,6 @@ class CommentOnly: Code {
     }
 }
 
-
 class BlankLine: Code {
     override func appendObjectCode(objectCode: inout [Int]) {
         // Does not generate code

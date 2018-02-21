@@ -25,7 +25,6 @@ class MachineModel {
     var operandSpecifier: Int
     var operand: Int
     
-    
     var inputBuffer: String
     var outputBuffer: String
     
@@ -65,10 +64,8 @@ class MachineModel {
                 
     }
     
-    
     func stopSimulating() {
         isSimulating = false
-        
     }
     
     func interrupt() {
@@ -81,7 +78,6 @@ class MachineModel {
         return value > 32767 ? value - 65536 : value
     }
 
-    
     /// Pre: -32768 <= value < 32768
     /// Post: 0 <= value < 65536 is returned
     func fromSignedDecimal(_ value: Int) -> Int {
@@ -102,6 +98,7 @@ class MachineModel {
         return (lhs + rhs) & 0xffff
     }
     
+    @discardableResult
     func addAndSetNZVC(_ lhs: Int, _ rhs: Int) -> Int {
         var result = lhs + rhs
         
@@ -127,10 +124,7 @@ class MachineModel {
             i += 1
         }
     }
-    
-    
-    
-    
+
     // MARK: Methods for Reading from Memory
     
     func readByte(_ addr: Int) -> Int {
@@ -212,9 +206,6 @@ class MachineModel {
         }
         return 0
     }
-    
-    
-    
     
     // MARK: Methods for Writing to Memory
     
@@ -332,7 +323,6 @@ class MachineModel {
             print (errorString) // MARK: Return Tuple
             return false
         }
-        
         
         switch (maps.decodeMnemonic[instructionSpecifier]) {
         case .ADDA:
@@ -694,14 +684,8 @@ class MachineModel {
             operand = readWordOprnd(addrMode: addrMode)
             stackPointer = add(stackPointer, (~operand + 1) & 0xffff)
             return true
-        default:
-            // should not happen
-            return false
         }
-        return false
     }
-    
-    
     
     // I wrote this function to make the ProcessorController update() method a bit more elegant. Now that I'm thinking about it, this might be an inappropriate method for the MachineModel.
     func prettyVersion(_ register: CPURegisters, format: CPUFormats) -> String {
@@ -737,25 +721,23 @@ class MachineModel {
             return "\(toSignedDecimal(value))"
         case .mnemon:
             return " " + maps.enumToMnemonMap[maps.decodeMnemonic[instructionSpecifier]]! + maps.commaSpaceStringForAddrMode(addressMode: maps.decodeAddrMode[instructionSpecifier])
-            
-            
         }
     }
     
     /// Determines whether or not the charIn trap will be used.
     func willAccessCharIn() -> Bool {
-        var instrSpecTemp = readByte(programCounter)
-        var mnemonTemp = maps.decodeMnemonic[instrSpecTemp]
+        let instrSpecTemp = readByte(programCounter)
+        let mnemonTemp = maps.decodeMnemonic[instrSpecTemp]
         
         if (mnemonTemp != .LDBA && mnemonTemp != .LDBX) {
             return false
         }
-        var addrModeTemp = maps.decodeAddrMode[instrSpecTemp]
+        let addrModeTemp = maps.decodeAddrMode[instrSpecTemp]
         if addrModeTemp == .I {
             return false
         }
         
-        var oprndSpecTemp = readWord(add(programCounter, 1))
+        _ = readWord(add(programCounter, 1))
         var addrOfByteOprndTemp = 0
         switch addrModeTemp {
         case .None, .All, .I:
@@ -778,11 +760,8 @@ class MachineModel {
         
         let val = 256 * mem[maps.dotBurnArgument - 7] + mem[maps.dotBurnArgument - 6]
         return val == addrOfByteOprndTemp
-
     }
-    
-    
-    
+
     func trapLookahead() {
         // if the instruction under the PC is a trap...
         if maps.isTrapMap[maps.decodeMnemonic[readByte(programCounter)]]! {
@@ -796,9 +775,4 @@ class MachineModel {
             //maps.listingRowChecked = maps.listingRowCheckedProg
         }
     }
-    
-    
-    
-    
-    
 }

@@ -15,7 +15,6 @@ protocol Argument {
     func getArgumentString() -> String
 }
 
-
 // MARK: - "Subclasses" of Argument (conformers to the Argument protocol).
 class CharArgument: Argument {
     internal var charValue: String = ""
@@ -32,8 +31,6 @@ class CharArgument: Argument {
         return charValue
     }
 }
-
-
 
 class DecArgument: Argument {
     internal var decValue: Int = -1
@@ -54,8 +51,6 @@ class DecArgument: Argument {
     }
 }
 
-
-
 class UnsignedDecArgument: Argument {
     internal var decValue: Int = -1
     init(dec: Int) {
@@ -71,8 +66,6 @@ class UnsignedDecArgument: Argument {
     }
 }
 
-
-
 class HexArgument: Argument {
     internal var hexValue: Int = -1
     init(hex: Int) {
@@ -86,10 +79,9 @@ class HexArgument: Argument {
     
     func getArgumentString() -> String {
         return "0x\(hexValue.toHex4())"
+    }
 }
-}
-    
-    
+
 class StringArgument: Argument {
     internal var stringValue: String = ""
     init(str: String) {
@@ -105,8 +97,6 @@ class StringArgument: Argument {
     }
 }
 
-    
-    
 class SymbolRefArgument: Argument {
     internal var symbolRefValue: String = ""
     init(symbolRef: String) {
@@ -151,4 +141,3 @@ class SymbolRefArgument: Argument {
         return symbolRefValue
     }
 }
-

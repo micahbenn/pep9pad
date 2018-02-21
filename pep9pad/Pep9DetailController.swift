@@ -10,7 +10,6 @@ import FontAwesome_swift
 import MessageUI
 import PKHUD
 
-
 /// A top-level controller that contains a `UITabBar` and serves as its delegate.
 /// This controller also handles all `UIBarButtonItem`s along the `UINavigationBar`.
 
@@ -59,8 +58,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
     // MARK: - Conformance to UITabBarDelegate
     
     func customizeTabBarImages(_ tabBarItems: [UITabBarItem]) {
@@ -106,7 +103,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         }
     }
     
-    
     //MARK: Install New OS Action Helper
     // TODO: FINISH THIS FUNC
     func installNewOSActionHelper(error: String) {
@@ -117,46 +113,45 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         print("Assembly failed")
     }
     
-    
     func setObjectCode(objectCode: [Int]) {
         // TODO: implement setObjectCode
     }
     
-    
     // MARK: - IBOutlets
-    
-    
-    
-    
+
     /// Convenience function that sets the `title` property of a `UIBarButtonItem` to a `FontAwesome` icon.
     func setButtonIcon(forBarBtnItem btn: UIBarButtonItem, nameOfIcon: FontAwesome, ofSize: CGFloat) {
         let attrs = [NSAttributedStringKey.font: UIFont.fontAwesome(ofSize: ofSize)] as Dictionary!
         btn.setTitleTextAttributes(attrs, for: .normal)
         btn.setTitleTextAttributes(attrs, for: .disabled)
+        btn.setTitleTextAttributes(attrs, for: .highlighted)
         btn.title = String.fontAwesomeIcon(name: nameOfIcon)
     }
-    
     
     @IBOutlet var runBtn: UIBarButtonItem! {
         didSet {
             setButtonIcon(forBarBtnItem: self.runBtn, nameOfIcon: .play, ofSize: 20)
         }
     }
+    
     @IBOutlet var debugBtn: UIBarButtonItem! {
         didSet {
             setButtonIcon(forBarBtnItem: self.debugBtn, nameOfIcon: .bug, ofSize: 20)
         }
     }
+    
     @IBOutlet var buildBtn: UIBarButtonItem! {
         didSet {
             self.buildBtn.image = UIImage(named: "ham")
         }
     }
+    
     @IBOutlet var calcBtn: UIBarButtonItem! {
         didSet {
             setButtonIcon(forBarBtnItem: self.calcBtn, nameOfIcon: .calculator, ofSize: 20)
         }
     }
+    
     @IBOutlet var settingsBtn: UIBarButtonItem! {
         didSet {
             setButtonIcon(forBarBtnItem: self.settingsBtn, nameOfIcon: .cog, ofSize: 20)
@@ -167,11 +162,9 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     @IBOutlet var actionBtn: UIBarButtonItem!
     
-    
     var stepBtn: UIBarButtonItem!
     var resBtn: UIBarButtonItem!
     var flexibleSpace: UIBarButtonItem!
-    
     
     //MARK: - IBActions
     
@@ -320,21 +313,16 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         }
     }
     
-    
     @IBAction func fontBtnPressed(_ sender: UIBarButtonItem) {
         let fontMenu = self.fontMenu.makeAlert(barButton: sender)
         self.present(fontMenu, animated: true, completion: nil)
     }
-    
-    
-    
     
     @IBAction func calcBtnPressed(_ sender: UIBarButtonItem) {
         let calcAlert = byteCalc.makeAlert()
         self.present(calcAlert, animated: true, completion: nil)
         
     }
-    
 
     @IBAction func settingsBtnPressed(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -698,7 +686,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         
     }
     
-    
     func presentFileSystem() {
         let vc = UIStoryboard(name: "FileSystem", bundle: Bundle.main).instantiateInitialViewController()
         self.present(vc!, animated: true) {
@@ -826,7 +813,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         tabBar.selectedIndex = i
     }
     
-    
     func updateEditorsFromProjectModel() {
         tabVCs.source?.pullFromProjectModel()
         tabVCs.object?.pullFromProjectModel()
@@ -844,7 +830,9 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             // no .BURN directive found, continue with assembly
             projectModel.objectStr = assembler.getReadableObjectCode()
             projectModel.listingStr = assembler.getReadableListing()
+            
             tabVCs.trace?.traceTable.loadFromListing()
+            
             HUD.flash(.labeledSuccess(title: "Assembled", subtitle: ""), delay: 1.0)
             setState(.built)
             
@@ -872,13 +860,12 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         updateEditorsFromProjectModel()
     }
     
-    
-    
     /// Called whenever the user taps the 'Load Object' button.  This function...
     
     /// * loads assembler.object into memory, if it exists
     /// * refreshes the memory dump
     
+    @discardableResult
     func loadObject() -> Bool {
         var obj = assembler.getObjectCode()
         for i in 0..<obj.count {
@@ -887,7 +874,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         master.io.memoryView.update()
         return true
     }
-    
     
     /// Executes whatever's currently stored in the machine.
     /// Begins at beginning of memory and follows the PC from there on out.
@@ -993,7 +979,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             }
         }
     }
-    
     
     @objc func singleStep() {
         
@@ -1161,8 +1146,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         
     }
     
-    
-    
     /// Called if the user would like to stop debugging and instead just finish executing the program.
     @objc func resumeExecution() {
         if master.io.simulatedIOMode == .batch {
@@ -1211,7 +1194,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         }
     }
     
-    
     func updateMemoryDump() {
         if master.io.currentMode == .memory {
             // need to update the memory view
@@ -1229,9 +1211,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     func updateCPU() {
         master.cpu.update()
     }
-    
-    
-    
     
     func startDebuggingSource() {
         stepBtn = UIBarButtonItem(title: "Step", style: .plain, target: self, action: #selector(self.singleStep))
@@ -1275,7 +1254,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         updateTraceTable()
     }
     
-    
     func stopDebugging() {
         machine.interrupt()
         // update trace
@@ -1289,7 +1267,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             self.navigationItem.leftBarButtonItems?.remove(at: b)
         }
         // multiple spaces were added, so they should all be removed, I guess
-        for i in 0..<3 {
+        for _ in 0..<3 {
             if let c = self.navigationItem.leftBarButtonItems?.index(of: flexibleSpace) {
                 self.navigationItem.leftBarButtonItems?.remove(at: c)
             }
@@ -1301,7 +1279,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         master.io.stopSimulation()
         
     }
-    
     
     var state: AppState!
     
@@ -1340,7 +1317,4 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             
         }
     }
-    
-    
-    
 }

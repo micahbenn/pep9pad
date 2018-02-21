@@ -8,15 +8,12 @@
 import UIKit
 
 class HelpDetailController: UIViewController {
-
-    
     internal var master: HelpMasterController!
     internal var documentationVC: DocumentationViewController!
     internal var exampleVC: ExampleViewController!
     internal var scrollView: UIScrollView!
     internal let copyToObj: String = "Copy to Object"
     internal let copyToSrc: String = "Copy to Source"
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +37,6 @@ class HelpDetailController: UIViewController {
     
         // load default detail view
         loadDocumentation(.AssemblyLanguage)
-        
-            
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,7 +47,6 @@ class HelpDetailController: UIViewController {
     func setup(master: HelpMasterController) {
         self.master = master
     }
-    
     
     // MARK: - Interface
     
@@ -65,10 +59,8 @@ class HelpDetailController: UIViewController {
                            ofType: self.exampleVC.currentExampleType,
                            io: self.exampleVC.currentExampleIO,
                            usesTerminal: self.exampleVC.currentExampleRequiresTerminal)
-
     }
 
-    
     // MARK: - Methods
     
     internal func loadDocumentation(_ doc: Documentation) {
@@ -81,16 +73,12 @@ class HelpDetailController: UIViewController {
         copyToBtn.isEnabled = false
         exampleVC.topTextView.setEditable(false)
         exampleVC.bottomTextView.setEditable(false)
-        
-        
-        
     }
     
     internal func loadExample(_ named: String) {
         documentationVC.view.isHidden = true
         exampleVC.view.isHidden = false
         copyToBtn.isEnabled = true
-       
 
         switch named {
         case "Figure 4.33":
@@ -402,12 +390,4 @@ class HelpDetailController: UIViewController {
             copyToBtn.title = copyToSrc
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
 }

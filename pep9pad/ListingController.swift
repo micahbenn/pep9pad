@@ -8,7 +8,6 @@
 import UIKit
 
 class ListingController: UIViewController, ProjectModelEditor {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         let rectForCode = CGRect(x: view.frame.origin.x, y: view.frame.origin.y, width: view.frame.width, height: view.frame.height-heightOfTabBar)

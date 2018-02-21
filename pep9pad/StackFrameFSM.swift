@@ -8,13 +8,11 @@
 import Foundation
 
 class StackFrameFSM {
-    
     var state: StackState = .start
     
     /// number of cells from the first SUBSP (i.e. parameters and retVal)
     var numCellsFromSubSP: Int = 0
     var numCellsFromCall: Int = 0
-    
     
     /// if the frame is ready to add, return the number of cells -- otherwise return 0
     func makeTransition(numCellsToAdd: Int) -> Int {

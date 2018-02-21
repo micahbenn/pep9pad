@@ -8,7 +8,6 @@
 import UIKit
 
 class PepTextStorage: BaseTextStorage {
-    
     internal var patterns: NSDictionary!
     internal var regularExpressions: [NSRegularExpression] = []
     internal var highlightAs: HighlightableLanguage! = .other

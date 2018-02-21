@@ -7,11 +7,9 @@
 
 import Foundation
 
-
 class DotAddress: Code {
     
     var argument: Argument!
-    
     
     override func appendObjectCode(objectCode: inout [Int]) {
         if maps.burnCount == 0 || (maps.burnCount == 1 && memAddress >= maps.romStartAddress) {
@@ -48,7 +46,6 @@ class DotAddress: Code {
     }
 }
 
-
 class DotAlign: Code {
     
     var argument: Argument!
@@ -63,8 +60,6 @@ class DotAlign: Code {
     }
     
     override func appendSourceLine(assemblerListing:inout [String], listingTrace:inout [String], hasCheckBox: [Bool]) {
-//        var assemblerListing = assemblerListing
-//        var listingTrace = listingTrace
         var hasCheckBox = hasCheckBox
         var numBytes: Int = numBytesGenerated.getArgumentValue()
         let memStr: String = numBytes == 0 ? "       " : memAddress.toHex4()
