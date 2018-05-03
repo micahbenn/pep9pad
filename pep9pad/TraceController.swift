@@ -8,7 +8,7 @@
 import UIKit
 
 class TraceController: UIViewController {
-    var traceTable: TraceTableController!
+    var traceTable: ListingTraceController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,11 +17,11 @@ class TraceController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let id = segue.identifier {
             switch id {
-            case "embedTraceTable":
-                traceTable = segue.destination as! TraceTableController
+            case "embedListingTrace":
+                traceTable = segue.destination as! ListingTraceController
             default:
                 break
-                
+
             }
         }
     }

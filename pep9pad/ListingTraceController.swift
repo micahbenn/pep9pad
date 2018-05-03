@@ -1,5 +1,5 @@
 //
-//  TraceTableController.swift
+//  ListingTraceController.swift
 //  pep9pad
 //
 //  Created by Josh Haug on 12/22/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TraceTableController: UITableViewController {
+class ListingTraceController: UITableViewController {
     var traceOS: Bool = false
     
     override func viewDidLoad() {
@@ -53,7 +53,7 @@ class TraceTableController: UITableViewController {
             // TODO: prog?
         }
     }
-
+    
     // Conformance to UITableViewDataSource (subclass of UITableViewController)
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

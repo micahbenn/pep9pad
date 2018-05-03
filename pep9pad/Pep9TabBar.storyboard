@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4Ap-BW-TDc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4Ap-BW-TDc">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,37 +18,55 @@
                         <viewControllerLayoutGuide type="bottom" id="oqv-wh-otk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aHV-4b-bBN">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="703.5" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DeY-R9-PI7">
-                                <rect key="frame" x="0.0" y="64" width="703" height="655"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4MN-CG-hEA">
+                                <rect key="frame" x="0.0" y="64" width="703" height="327"/>
                                 <connections>
-                                    <segue destination="gvB-0F-Oxp" kind="embed" identifier="embedTraceTable" id="W9I-Sj-eXH"/>
+                                    <segue destination="C5c-Aj-uEp" kind="embed" identifier="embedListingTrace" id="BMo-Fx-kf0"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OJu-ph-XbH">
+                                <rect key="frame" x="0.0" y="392" width="703" height="327"/>
+                                <connections>
+                                    <segue destination="R9u-du-Vo2" kind="embed" identifier="embedStackTrace" id="u84-3n-0mi"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="DeY-R9-PI7" firstAttribute="top" secondItem="h33-un-hWy" secondAttribute="bottom" id="JBn-L1-dn5"/>
-                            <constraint firstItem="DeY-R9-PI7" firstAttribute="bottom" secondItem="oqv-wh-otk" secondAttribute="top" id="MRr-OI-2Bp"/>
-                            <constraint firstAttribute="trailing" secondItem="DeY-R9-PI7" secondAttribute="trailing" id="RPd-HH-wIo"/>
-                            <constraint firstItem="DeY-R9-PI7" firstAttribute="leading" secondItem="aHV-4b-bBN" secondAttribute="leading" id="a71-FA-TQU"/>
+                            <constraint firstItem="4MN-CG-hEA" firstAttribute="leading" secondItem="aHV-4b-bBN" secondAttribute="leading" id="0hf-XS-CVm"/>
+                            <constraint firstItem="OJu-ph-XbH" firstAttribute="bottom" secondItem="oqv-wh-otk" secondAttribute="top" id="0wp-79-Atv"/>
+                            <constraint firstItem="OJu-ph-XbH" firstAttribute="width" secondItem="4MN-CG-hEA" secondAttribute="width" id="RID-JD-6Kn"/>
+                            <constraint firstItem="OJu-ph-XbH" firstAttribute="height" secondItem="4MN-CG-hEA" secondAttribute="height" id="WPG-JU-KGV"/>
+                            <constraint firstAttribute="trailing" secondItem="4MN-CG-hEA" secondAttribute="trailing" id="dsQ-UW-qbs"/>
+                            <constraint firstItem="4MN-CG-hEA" firstAttribute="leading" secondItem="OJu-ph-XbH" secondAttribute="leading" id="eLY-YB-Fgc"/>
+                            <constraint firstItem="4MN-CG-hEA" firstAttribute="top" secondItem="h33-un-hWy" secondAttribute="bottom" id="fJ8-Ma-SEq"/>
+                            <constraint firstItem="OJu-ph-XbH" firstAttribute="top" secondItem="4MN-CG-hEA" secondAttribute="bottom" constant="1" id="gch-ZL-EWR"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Trace" id="Fut-k7-M80"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iBb-5v-zNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-247.26562499999997" y="172.65625"/>
+            <point key="canvasLocation" x="-246.09374999999997" y="172.65625"/>
         </scene>
-        <!--Trace-->
-        <scene sceneID="nkq-MP-d5A">
+        <!--ListingTrace-->
+        <scene sceneID="wev-SK-z1r">
             <objects>
-                <viewControllerPlaceholder storyboardName="Trace" id="gvB-0F-Oxp" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Q7E-Gn-Huo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="ListingTrace" id="C5c-Aj-uEp" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oPE-N0-YeJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="168" y="173"/>
+            <point key="canvasLocation" x="168" y="68"/>
+        </scene>
+        <!--StackTrace-->
+        <scene sceneID="dPM-jg-yjH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="StackTrace" id="R9u-du-Vo2" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8UG-4A-Ye1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="166" y="284"/>
         </scene>
         <!--Object Code-->
         <scene sceneID="iNk-O6-UYd">
@@ -59,7 +77,7 @@
                         <viewControllerLayoutGuide type="bottom" id="l2u-vy-78S"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="53m-DP-KgF">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="703.5" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfF-gd-7K9" customClass="CodeView" customModule="pep9pad" customModuleProvider="target">
@@ -93,11 +111,11 @@
                         <viewControllerLayoutGuide type="bottom" id="IoH-UQ-5lF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sGn-GJ-53d">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="703.5" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D5w-6p-0Sp" customClass="CodeView" customModule="pep9pad" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="702.5" height="719"/>
+                                <rect key="frame" x="0.0" y="0.0" width="703.5" height="719"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -127,7 +145,7 @@
                         <viewControllerLayoutGuide type="bottom" id="FIn-qU-MXS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="wHl-ag-cqC">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="703.5" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lGL-kS-c5j" customClass="CodeView" customModule="pep9pad" customModuleProvider="target">
