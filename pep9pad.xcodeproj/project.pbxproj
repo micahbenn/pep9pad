@@ -58,7 +58,6 @@
 		463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A662E1C97CD6C004C35B2 /* Fonts.swift */; };
 		463A66311C97CE0E004C35B2 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A66301C97CE0E004C35B2 /* CodeView.swift */; };
 		4642A16E1DFE1DB700D072F0 /* StackFrameFSM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4642A16D1DFE1DB700D072F0 /* StackFrameFSM.swift */; };
-		4642A1701DFE1DFF00D072F0 /* StackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4642A16F1DFE1DFF00D072F0 /* StackState.swift */; };
 		464D143B1E5273F300C7FCBE /* CPUAssemblerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464D143A1E5273F300C7FCBE /* CPUAssemblerModel.swift */; };
 		464D143D1E52745B00C7FCBE /* CPUCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464D143C1E52745B00C7FCBE /* CPUCode.swift */; };
 		464D143F1E52765800C7FCBE /* CPUMemoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464D143E1E52765800C7FCBE /* CPUMemoryView.swift */; };
@@ -318,7 +317,6 @@
 		463A662E1C97CD6C004C35B2 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		463A66301C97CE0E004C35B2 /* CodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		4642A16D1DFE1DB700D072F0 /* StackFrameFSM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackFrameFSM.swift; sourceTree = "<group>"; };
-		4642A16F1DFE1DFF00D072F0 /* StackState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackState.swift; sourceTree = "<group>"; };
 		464D143A1E5273F300C7FCBE /* CPUAssemblerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUAssemblerModel.swift; sourceTree = "<group>"; };
 		464D143C1E52745B00C7FCBE /* CPUCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUCode.swift; sourceTree = "<group>"; };
 		464D143E1E52765800C7FCBE /* CPUMemoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUMemoryView.swift; sourceTree = "<group>"; };
@@ -613,7 +611,6 @@
 				33ED2DDF2099662C00DBAB46 /* StackTraceController.swift */,
 				33ED2DE5209A819E00DBAB46 /* StackTrace.storyboard */,
 				4642A16D1DFE1DB700D072F0 /* StackFrameFSM.swift */,
-				4642A16F1DFE1DFF00D072F0 /* StackState.swift */,
 			);
 			name = Trace;
 			sourceTree = "<group>";
@@ -1498,7 +1495,6 @@
 				464DE4721E69FD2C00763503 /* FontMenuColorCell.swift in Sources */,
 				46C76A681DB856A50071C340 /* ObjectController.swift in Sources */,
 				46F46D3B1C8F70650092EF04 /* HelpDetailController.swift in Sources */,
-				4642A1701DFE1DFF00D072F0 /* StackState.swift in Sources */,
 				4642A16E1DFE1DB700D072F0 /* StackFrameFSM.swift in Sources */,
 				D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */,
 				46BB48DE1E7227C6001EF954 /* CPU1ByteRenderer.swift in Sources */,

@@ -125,23 +125,23 @@ class AssemblerModel {
         
         maps.traceTagWarning = false
         
-//        // check format trace tags
-//        for i in 0..<source.count {
-//            if (!source[i].processFormatTraceTags(at: &lineNum, err: &errorString)) {
-//                projectModel.appendMessageInSource(atLine: lineNum, message: errorString)
-//                maps.traceTagWarning = true
-//            }
-//        }
-//        
-//        // check symbol trace tags
-//        if !maps.traceTagWarning && !(maps.blockSymbols.isEmpty && maps.equateSymbols.isEmpty) {
-//            for i in 0..<source.count {
-//                if !(source[i].processSymbolTraceTags(at: &lineNum, err: &errorString)) {
-//                    projectModel.appendMessageInSource(atLine: lineNum, message: errorString)
-//                    maps.traceTagWarning = true
-//                }
-//            }
-//        }
+        // check format trace tags
+        for i in 0..<source.count {
+            if (!source[i].processFormatTraceTags(at: &lineNum, err: &errorString)) {
+                projectModel.appendMessageInSource(atLine: lineNum, message: errorString)
+                maps.traceTagWarning = true
+            }
+        }
+        
+        // check symbol trace tags
+        if !maps.traceTagWarning && !(maps.blockSymbols.isEmpty && maps.equateSymbols.isEmpty) {
+            for i in 0..<source.count {
+                if !(source[i].processSymbolTraceTags(at: &lineNum, err: &errorString)) {
+                    projectModel.appendMessageInSource(atLine: lineNum, message: errorString)
+                    maps.traceTagWarning = true
+                }
+            }
+        }
         
         // these have been moved to the assembleSource function in the Pep9DetailController
         //traceVC.setMemoryTrace()
@@ -250,12 +250,22 @@ class AssemblerModel {
     }
     
     func formatMultiplier(_ formatTag: String) -> Int {
-        let pos: Int = rxArrayMultiplier.index(ofAccessibilityElement: formatTag)
-        if pos > -1 {
-            var multiplierTag: String = rxArrayMultiplier.cap(section: 0)
+//        let pos: Int = rxArrayMultiplier.index(ofAccessibilityElement: formatTag)
+//        if pos > -1 {
+//            var multiplierTag: String = rxArrayMultiplier.cap(section: 0)
+//            multiplierTag.chop()
+//            return Int(multiplierTag)!
+//        }
+//        return 1
+        
+        let matches = rxArrayMultiplier.matchesIn(formatTag)
+        
+        if matches.count > 0 {
+            var multiplierTag: String = matches[0]
             multiplierTag.chop()
             return Int(multiplierTag)!
         }
+        
         return 1
     }
     

@@ -232,9 +232,26 @@ class DotBlock: Code {
         if symbolDef.isEmpty {
             return true
         }
-        let pos: Int = rxFormatTag.index(ofAccessibilityElement: comment)
-        if pos > -1 {
-            let formatTag: String = rxFormatTag.cap(section: 0)
+//        let pos: Int = rxFormatTag.index(ofAccessibilityElement: comment)
+//        if pos > -1 {
+//            let formatTag: String = rxFormatTag.cap(section: 0)
+//            let tagType: ESymbolFormat = assembler.formatTagType(formatTag: formatTag)
+//            let multiplier: Int = assembler.formatMultiplier(formatTag)
+//            if argument.getArgumentValue() != (assembler.tagNumBytes(symbolFormat: tagType) * multiplier) {
+//                errorString = ";WARNING: Format tag does not match number of bytes allocated by .BLOCK."
+//                sourceLine = sourceCodeLine
+//                return false
+//            }
+//            maps.symbolFormat[symbolDef] = tagType
+//            maps.symbolFormatMultiplier[symbolDef] = multiplier
+//            maps.blockSymbols.append(symbolDef)
+//        }
+//        return true
+        
+        let matches = rxFormatTag.matchesIn(comment)
+        
+        if matches.count > 0 {
+            let formatTag: String = matches[0]
             let tagType: ESymbolFormat = assembler.formatTagType(formatTag: formatTag)
             let multiplier: Int = assembler.formatMultiplier(formatTag)
             if argument.getArgumentValue() != (assembler.tagNumBytes(symbolFormat: tagType) * multiplier) {
@@ -257,12 +274,36 @@ class DotBlock: Code {
             return true // Pre-Existing format tag takes precedence over symbol tag.
         }
         
+//        let numBytesAllocated: Int = argument.getArgumentValue()
+//        var symbol: String
+//        var list: [String] = []
+//        var numBytesListed: Int = 0
+//        while rxSymbolTag.appearsIn(comment) {  // UPDATE
+//            symbol = rxSymbolTag.cap(section: 1)
+//            if !(maps.equateSymbols.contains(symbol)) {
+//                errorString = ";WARNING: " + symbol + " not specified in .EQUATE"
+//                sourceLine = sourceCodeLine
+//                return false
+//            }
+//            numBytesListed += assembler.tagNumBytes(symbolFormat: maps.symbolFormat[symbol]!) * maps.symbolFormatMultiplier[symbol]!
+//            list.append(symbol)
+//        }
+//        if (numBytesAllocated != numBytesListed) && (numBytesListed > 0) {
+//            errorString = ";WARNING: Number of bytes allocated (" //+  UPDATE
+//            sourceLine = sourceCodeLine
+//            return false
+//        }
+//        maps.blockSymbols.append(symbolDef)
+//        maps.globalStructSymbols.updateValue(list, forKey: symbolDef) // UPDATE
+//        return true
+        
         let numBytesAllocated: Int = argument.getArgumentValue()
-        var symbol: String
         var list: [String] = []
         var numBytesListed: Int = 0
-        while rxSymbolTag.appearsIn(comment) {  // UPDATE
-            symbol = rxSymbolTag.cap(section: 1)
+        
+        let matches = rxSymbolTag.matchesIn(comment)
+        
+        for symbol in matches {
             if !(maps.equateSymbols.contains(symbol)) {
                 errorString = ";WARNING: " + symbol + " not specified in .EQUATE"
                 sourceLine = sourceCodeLine

@@ -7,8 +7,14 @@
 
 import Foundation
 
+private enum StackState {
+    case start
+    case subSP
+    case call
+}
+
 class StackFrameFSM {
-    var state: StackState = .start
+    private var state: StackState = .start
     
     /// number of cells from the first SUBSP (i.e. parameters and retVal)
     var numCellsFromSubSP: Int = 0

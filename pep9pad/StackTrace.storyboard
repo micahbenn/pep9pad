@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Stack Controller-->
+        <!--Stack Trace Controller-->
         <scene sceneID="gca-GW-XuV">
             <objects>
-                <viewController id="qCt-eP-r3y" customClass="StackController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qCt-eP-r3y" customClass="StackTraceController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="43X-vz-ZNA"/>
                         <viewControllerLayoutGuide type="bottom" id="SA5-jY-t4s"/>
@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="MemTrace" translatesAutoresizingMaskIntoConstraints="NO" id="69M-kO-nTq">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="MemTrace" translatesAutoresizingMaskIntoConstraints="NO" id="69M-kO-nTq">
                                 <rect key="frame" x="0.0" y="645" width="768" height="379"/>
                             </imageView>
                         </subviews>

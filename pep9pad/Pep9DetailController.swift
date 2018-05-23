@@ -832,6 +832,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             projectModel.listingStr = assembler.getReadableListing()
             
             tabVCs.trace?.traceTable.loadFromListing()
+            tabVCs.trace?.stackTrace.setMemoryTrace()
             
             HUD.flash(.labeledSuccess(title: "Assembled", subtitle: ""), delay: 1.0)
             setState(.built)
